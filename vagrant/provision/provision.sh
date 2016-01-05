@@ -289,6 +289,7 @@ fi
 rsync -rvzh --delete /srv/config/nginx-config/sites/ /etc/nginx/custom-sites/
 sed -i -e 's/%DEVDNS%/'$DEVDNS'/g' /etc/nginx/custom-sites/default.conf
 sed -i -e 's/%TESTDNS%/'$TESTDNS'/g' /etc/nginx/custom-sites/default.conf
+sed -i -e 's/%STAGEDNS%/'$STAGEDNS'/g' /etc/nginx/custom-sites/default.conf
 
 echo " * /srv/config/nginx-config/nginx.conf           -> /etc/nginx/nginx.conf"
 echo " * /srv/config/nginx-config/nginx-wp-common.conf -> /etc/nginx/nginx-wp-common.conf"
