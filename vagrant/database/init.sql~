@@ -10,3 +10,4 @@ GRANT ALL PRIVILEGES ON `wordpress-test`.* TO 'wordpress'@'localhost' IDENTIFIED
 CREATE DATABASE IF NOT EXISTS `wordpress-staging`;
 GRANT ALL PRIVILEGES ON `wordpress-test`.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress';
 
+

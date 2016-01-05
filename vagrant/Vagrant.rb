@@ -40,6 +40,7 @@ Vagrant.configure("2") do |config|
     hosts = []
     hosts << DEVDNS
     hosts << TESTDNS
+    hosts << STAGEDNS
     # Pass the final hosts array to the hostsupdate plugin so it can perform magic.
     config.hostsupdater.aliases = hosts
   end
@@ -66,11 +67,13 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "vagrant/log/", "/srv/log", :owner => "www-data"
 
 
-  # /srv/www/
+  # /srv/www/ and staging
   if vagrant_version >= "1.3.0"
     config.vm.synced_folder "www/", "/srv/www/", :owner => "www-data", :mount_options => [ "dmode=775", "fmode=774" ]
+    config.vm.synced_folder "staging/", "/srv/staging/", :owner => "www-data", :mount_options => [ "dmode=775", "fmode=774" ]
   else
     config.vm.synced_folder "www/", "/srv/www/", :owner => "www-data", :extra => 'dmode=775,fmode=774'
+    config.vm.synced_folder "staging/", "/srv/staging/", :owner => "www-data", :extra => 'dmode=775,fmode=774'
   end
 
   # get dev and test dns names into env
@@ -78,6 +81,7 @@ Vagrant.configure("2") do |config|
     echo -n                              >  /etc/profile.d/vagrantvars.sh
     echo 'export DEVDNS=#{DEVDNS}'        >> /etc/profile.d/vagrantvars.sh
     echo 'export TESTDNS=#{TESTDNS}'        >> /etc/profile.d/vagrantvars.sh
+    echo 'export STAGEDNS=#{STAGEDNS}'        >> /etc/profile.d/vagrantvars.sh
   SHELL
 
 
