@@ -8,5 +8,5 @@ CREATE DATABASE IF NOT EXISTS `wordpress-test`;
 GRANT ALL PRIVILEGES ON `wordpress-test`.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress';
 
 CREATE DATABASE IF NOT EXISTS `wordpress-staging`;
-GRANT ALL PRIVILEGES ON `wordpress-test`.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress';
+GRANT ALL PRIVILEGES ON `wordpress-staging`.* TO 'wordpress'@'localhost' IDENTIFIED BY 'wordpress';
 
