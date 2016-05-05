@@ -4,4 +4,6 @@
 
 - name: Install phpunit
   command: composer global require phpunit/phpunit
+  become: yes
+  become_user: vagrant
 

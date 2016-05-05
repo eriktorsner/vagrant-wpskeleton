@@ -1,11 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-HOSTNAME  = 'geckopress'
+HOSTNAME  = 'appname'
 IPNUMBER  = '192.168.50.NN'
-DEVDNS    = 'www.domain.local'
-TESTDNS   = 'test.domain.local'
-STAGEDNS  = 'staging.domain.local'
+DEVDNS    = 'www.appname.local'
+TESTDNS   = 'test.appname.local'
+STAGEDNS  = 'staging.appname.local'
 BOX       = 'ubuntu/wily64'
 
 #############################################################
