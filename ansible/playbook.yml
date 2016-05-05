@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/all.yml
+    - vars/vagrant.yml
+  roles:
+    - server
+    - database
+    - web
+    - php
+    - app
+

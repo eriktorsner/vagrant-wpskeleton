@@ -1,0 +1,10 @@
+---
+- template: src=nginx/wordpress dest=/etc/nginx/sites-enabled/ owner=root group=root mode=0644
+- copy: src=nginx/nginx-wp-common.conf dest=/etc/nginx/ owner=root group=root mode=0644
+- service: name=nginx state=reloaded
+
+- mysql_db: name=wordpress state=present login_user=root login_password=root
+- mysql_db: name=wordpress-test state=present login_user=root login_password=root
+- mysql_db: name=wordpress-staging state=present login_user=root login_password=root
+- mysql_user: name=wordpress password=wordpress priv=wordpress.*:ALL/wordpress-test.*:All/wordpress-staging.*:ALL state=present login_user=root login_password=root
+

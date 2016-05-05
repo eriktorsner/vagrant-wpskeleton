@@ -1,0 +1,17 @@
+---
+- name: Ensure Apache is gone
+  sudo: yes
+  apt: pkg={{ item }} state=absent
+  with_items:
+    - apache2
+
+- name: Install Nginx
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - nginx
+
+- name: Add vagrant user to www-data (conditionally)
+  shell: adduser vagrant www-data
+  when: ansible_ssh_user == "vagrant"
+

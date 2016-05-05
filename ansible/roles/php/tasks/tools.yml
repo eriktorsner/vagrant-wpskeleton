@@ -1,0 +1,7 @@
+---
+- name: Add composer/bin to beginning of $PATH
+  lineinfile: dest={{env.home}}/.bashrc regexp="^export PATH=~\/.composer\/vendor\/bin" line="export PATH=~/.composer/vendor/bin:$PATH"
+
+- name: Install phpunit
+  command: composer global require phpunit/phpunit
+

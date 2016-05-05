@@ -1,0 +1,24 @@
+upstream fastcgi_backend {
+    server   unix:/var/run/php5-fpm.sock;
+}
+
+server {
+    listen 80;
+    server_name  {{ ansible_vagrant_devdns }};
+    root         /vagrant/www/wordpress-default;
+    include      /etc/nginx/nginx-wp-common.conf;
+}
+
+server {
+    listen 80;
+    server_name  {{ ansible_vagrant_testdns }};
+    root         /vagrant/www/wordpress-test;
+    include      /etc/nginx/nginx-wp-common.conf;
+}
+
+server {
+    listen 80;
+    server_name  {{ ansible_vagrant_stagedns }};
+    root         /vagrant/www/wordpress-staging;
+    include      /etc/nginx/nginx-wp-common.conf;
+}

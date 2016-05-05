@@ -1,0 +1,15 @@
+---
+- name: Check if Wp-cli is installed.
+  stat: "path=/usr/local/bin/wp"
+  register: wpcli_bin
+
+- name: Download wp-cli.phar
+  get_url:
+    url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    dest: /tmp/wp-cli.phar
+    mode: 0755
+  when: not wpcli_bin.stat.exists
+
+- name: Move wp-cli
+  command: mv /tmp/wp-cli.phar /usr/local/bin/wp
+  when: not wpcli_bin.stat.exists
