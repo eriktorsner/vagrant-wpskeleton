@@ -29,9 +29,4 @@
   changed_when: "'Updating to version' in composer_update.stdout"
   when: composer.keep_updated
 
-- name: Creates .composer directory
-  file: path={{env.home}}/.composer state=directory
 
-- name: copy
-  become: yes
-  copy: src=composer/auth.json dest={{ env.home }}/.composer owner={{ env.user }} group=root mode=0644

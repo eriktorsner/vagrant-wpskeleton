@@ -1,0 +1,7 @@
+---
+- name: Add xdebug to php config
+  copy: src=xdebug/xdebug.ini dest=/etc/php5/mods-available/
+
+- name: Ensure PHP_IDE_CONFIG env is set
+  lineinfile: dest=/etc/profile.d/xdebug_env.sh create=yes line="export PHP_IDE_CONFIG=serverName=vagrant-box"
+

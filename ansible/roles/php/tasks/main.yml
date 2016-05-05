@@ -10,8 +10,8 @@
   when: php.packages is defined
 
 - include: composer.yml
+- include: xdebug.yml
 - include: wp-cli.yml
-- include: imagick.yml
 - include: tools.yml
 
 
