@@ -1,5 +1,5 @@
 # vagrant-wpskeleton
-A Vagrant skeleton for setting up WordPress client sites
+A Vagrant skeleton for setting up WordPress client sites. Uses Ansible for provisioning.
 
 ## Usage
 
